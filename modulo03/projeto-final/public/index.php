@@ -2,34 +2,54 @@
 
 include '../vendor/autoload.php';
 
-use App\Controller\IndexController;
-use App\Controller\ProductController;
-use App\Controller\ErrorController;
+$database = 'db_store';
+$username = 'root';
+$password = 'leleco';
 
-$url = explode('?', $_SERVER['REQUEST_URI'])[0];
+$connection = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
-function createRoute(string $controllerName, string $methodName){
-  return [
-    'controller' => $controllerName,
-    'method' => $methodName,
-  ];
-}
+// var_dump($connection);
+$query = 'SELECT * FROM tb_category;';
 
-$routes = [
-  '/' => createRoute(IndexController::class, 'indexAction'),
-  '/produtos' => createRoute(ProductController::class, 'listAction'),
-  '/produtos/novo' => createRoute(ProductController::class, 'addAction'),
-];
+$preparacao = $connection->prepare($query);
+$preparacao->execute();
 
-if(false === isset($routes[$url])){
-  (new ErrorController())->notFoundAction();
-  exit;
-}
 
-$controllerName = $routes[$url]['controller'];
-$methodName = $routes[$url]['method'];
+//  var_dump($preparacao);
 
-(new $controllerName())->$methodName();
+//  while($registros = $preparacao->fetch()){
+//   var_dump($registros);
+
+//  }
+
+// use App\Controller\IndexController;
+// use App\Controller\ProductController;
+// use App\Controller\ErrorController;
+
+// $url = explode('?', $_SERVER['REQUEST_URI'])[0];
+
+// function createRoute(string $controllerName, string $methodName){
+//   return [
+//     'controller' => $controllerName,
+//     'method' => $methodName,
+//   ];
+// }
+
+// $routes = [
+//   '/' => createRoute(IndexController::class, 'indexAction'),
+//   '/produtos' => createRoute(ProductController::class, 'listAction'),
+//   '/produtos/novo' => createRoute(ProductController::class, 'addAction'),
+// ];
+
+// if(false === isset($routes[$url])){
+//   (new ErrorController())->notFoundAction();
+//   exit;
+// }
+
+// $controllerName = $routes[$url]['controller'];
+// $methodName = $routes[$url]['method'];
+
+// (new $controllerName())->$methodName();
 
 //echo $controllerName;
 
