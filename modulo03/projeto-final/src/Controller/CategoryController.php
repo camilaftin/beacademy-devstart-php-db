@@ -24,12 +24,28 @@ class CategoryController extends AbstractController{
     // echo $cat['description'];
 
 
-    parent::render('/product/list', $result);
+    parent::render('/category/list', $result);
   }
 
   public function addAction():void 
   {
-    parent::render('/product/add');
+    
+    if($_POST){
+      $name = $_POST['name'];
+      $descritpion = $_POST['description'];
+
+      $query = "INSERT INTO tb_category (name, description) VALUES ('{$name}','{$description}')";
+      $con = Connection::getConnection();
+      $result = $con->prepare($query);
+      $result->execute();
+
+      echo ' Categoria inserida com sucesso!';
+
+
+    }
+    
+    
+    parent::render('/category/add');
   }
 
   public function editAction():void 

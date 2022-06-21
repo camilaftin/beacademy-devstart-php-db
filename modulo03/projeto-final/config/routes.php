@@ -18,7 +18,8 @@ use App\Controller\CategoryController;
    '/' => createRoute(IndexController::class, 'indexAction'),
    '/produtos' => createRoute(ProductController::class, 'listAction'),
    '/produtos/novo' => createRoute(ProductController::class, 'addAction'),
-   ' /categorias' => createRoute(CategoryController::class, 'listAction'),
+   '/categorias' => createRoute(CategoryController::class, 'listAction'),
+   '/categorias/novas' => createRoute(CategoryController::class, 'addAction'),
  ];
 
  return $routes;
