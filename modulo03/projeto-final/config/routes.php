@@ -20,6 +20,7 @@ use App\Controller\CategoryController;
    '/produtos/novo' => createRoute(ProductController::class, 'addAction'),
    '/categorias' => createRoute(CategoryController::class, 'listAction'),
    '/categorias/novas' => createRoute(CategoryController::class, 'addAction'),
+   '/categorias/excluir' => createRoute(CategoryController::class, 'removeAction'),
  ];
 
  return $routes;
