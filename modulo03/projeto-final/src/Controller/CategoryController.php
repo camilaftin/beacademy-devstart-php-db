@@ -16,14 +16,15 @@ class CategoryController extends AbstractController{
 
     $result->execute();
 
-    $cat = $result->fetch(\PDO::FETCH_ASSOC);
+    //$data = $result->fetch(\PDO::FETCH_ASSOC);
 
-    echo $cat['id'];
-    echo $cat['name'];
-    echo $cat['description'];
+    //include dirname(__DIR__).'/View/category/list.php';
+    // echo $cat['id'];
+    // echo $cat['name'];
+    // echo $cat['description'];
 
 
-    parent::render('/product/list');
+    parent::render('/product/list', $result);
   }
 
   public function addAction():void 
