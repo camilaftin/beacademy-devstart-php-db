@@ -16,14 +16,6 @@ class CategoryController extends AbstractController{
 
     $result->execute();
 
-    //$data = $result->fetch(\PDO::FETCH_ASSOC);
-
-    //include dirname(__DIR__).'/View/category/list.php';
-    // echo $cat['id'];
-    // echo $cat['name'];
-    // echo $cat['description'];
-
-
     parent::render('/category/list', $result);
   }
 

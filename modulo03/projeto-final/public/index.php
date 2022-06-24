@@ -13,11 +13,9 @@ use App\Controller\ErrorController;
 
 $connection = Connection::getConnection();
 
+
 //$connection = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-// var_dump($connection);
 //$query = 'SELECT * FROM tb_category;';
-
 //$preparacao = $connection->prepare($query);
 //$preparacao->execute();
 
@@ -35,25 +33,3 @@ $routes = include ' ../config/routes.php';
 
  (new $controllerName())->$methodName();
 
-//echo $controllerName;
-
-
-// if($url === '/'){
-//   $c = new IndexController();
-//   $c->indexAction();
-// }else if($url === '/login'){
-//   $c = new IndexController();
-//   $c->loginAction();
-// }else if($url === '/produtos'){
-//   $p = new ProductController();
-//   $p->listAction();
-// }else{
-//   $e = new ErrorController();
-//   $e->notFoundAction();
-// }
-// $p = new ProductController();
-// $c->loginAction();
-// $p->listAction();
-// $p->addAction();
-// $p->editAction();
-//echo 'Ola mundo';

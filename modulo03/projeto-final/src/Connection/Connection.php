@@ -6,7 +6,8 @@ namespace App\Connection;
 
 abstract class Connection{
 
-    public static function getConnection():\PDO{
+    public static function getConnection(): \PDO
+    {
         
         $database = 'db_store';
         $username = 'root';
