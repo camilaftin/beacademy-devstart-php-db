@@ -8,18 +8,19 @@ use App\Controller\AbstractController;
 
 class IndexController extends AbstractController{
 
-  public function indexAction():void
-  {
-    
-    //include dirname(__DIR__).'/View/index/index.php';
-    parent::render('index/index');
+   public function indexAction():void
+   {
+     parent::render('index/login');
+   }
 
-  }
+  //  public function indexAction():void
+  //  {
+  //    parent::render('index/index');
+  //  }
 
-  public function loginAction():void 
-  {
-    //include dirname(__DIR__).'/View/index/login.php';
-    parent::render('index/login');
-  }
+  // public function loginAction():void 
+  // {
+  //   parent::render('index/login');
+  // }
 
 }
