@@ -10,21 +10,20 @@ class CategoryController extends AbstractController{
 
   public function listAction():void 
   {
-    $con = Connection::getConnection();
+     $con = Connection::getConnection();
 
-    $result = $con->prepare('SELECT * FROM  tb_category');
-
-    $result->execute();
-
-    parent::render('/category/list', $result);
+     $result = $con->prepare('SELECT * FROM  tb_category');
+     $result->execute();
+     
+     parent::render('category/list', $result);
+     
   }
 
   public function addAction():void 
   {
-    
     if($_POST){
       $name = $_POST['name'];
-      $descritpion = $_POST['description'];
+      $description = $_POST['description'];
 
       $query = "INSERT INTO tb_category (name, description) VALUES ('{$name}','{$description}')";
       $con = Connection::getConnection();
@@ -32,17 +31,14 @@ class CategoryController extends AbstractController{
       $result->execute();
 
       echo ' Categoria inserida com sucesso!';
-
-
     }
     
-    
-    parent::render('/category/add');
+    parent::render('category/add');
   }
 
   public function editAction():void 
   {
-    parent::render('/product/edit');
+    parent::render('product/edit');
   }
 
 
@@ -56,7 +52,7 @@ class CategoryController extends AbstractController{
     $result = $con->prepare($query);
     $result->execute();
 
-    echo 'Pronto, categoria excluida';
+    echo 'Categoria excluida com sucesso!';
 
   }
 
@@ -78,7 +74,6 @@ class CategoryController extends AbstractController{
       echo 'Pronto, categoria atualizada';
     }
     
-    
     $query = "SELECT * FROM tb_category WHERE  id='{$id}'";
 
     $result = $con->prepare($query);
@@ -86,7 +81,6 @@ class CategoryController extends AbstractController{
     $result->execute();
 
     $data = $result->fetch(\PDO::FETCH_ASSOC);
-
 
     parent::render('category/edit', $data);
 

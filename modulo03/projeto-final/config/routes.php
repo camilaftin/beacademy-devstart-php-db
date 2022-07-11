@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 use App\Controller\IndexController;
-use App\Controller\ProductController;
 use App\Controller\CategoryController;
+use App\Controller\ProductController;
+
 
  function createRoute(string $controllerName, string $methodName){
    return [
@@ -30,3 +31,5 @@ use App\Controller\CategoryController;
  ];
 
  return $routes;
+
+ ?>

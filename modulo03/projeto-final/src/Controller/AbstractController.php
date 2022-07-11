@@ -12,8 +12,8 @@ abstract class AbstractController
     include dirname(__DIR__)."/View/_partials/head.php";
     include dirname(__DIR__)."/View/{$viewName}.php";
     include dirname(__DIR__)."/View/_partials/footer.php";
-    // include dirname(__DIR__).'/View/product/add.php';
-    // include dirname(__DIR__).'/View/index/login.php';
+    //include dirname(__DIR__).'/View/product/add.php';
+    //include dirname(__DIR__).'/View/index/login.php';
   
   }
 
